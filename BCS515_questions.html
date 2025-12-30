@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Exam Questions Analysis - BCS515B</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .collapsible-content {
+            display: none;
+        }
+
+        .collapsible-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-100 p-6">
+
+    <div class="max-w-7xl mx-auto">
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg shadow-lg mb-6">
+            <h1 class="text-3xl font-bold mb-2">AI Exam Questions Analysis</h1>
+            <p class="text-blue-100">BCS515B - Comprehensive Module-wise Breakdown</p>
+            <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div class="bg-white/20 p-3 rounded">
+                    <div id="total-questions" class="font-bold text-2xl">0</div>
+                    <div>Total Questions</div>
+                </div>
+                <div class="bg-white/20 p-3 rounded">
+                    <div class="font-bold text-2xl">5</div>
+                    <div>Modules</div>
+                </div>
+                <div class="bg-white/20 p-3 rounded">
+                    <div class="font-bold text-2xl">4</div>
+                    <div>Papers Analyzed</div>
+                </div>
+                <div class="bg-white/20 p-3 rounded">
+                    <div class="font-bold text-2xl">97</div>
+                    <div>Original Questions</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-6 bg-white p-4 rounded-lg shadow">
+            <h3 class="font-bold mb-2">Legend:</h3>
+            <div class="flex flex-wrap gap-3 text-sm">
+                <span class="flex items-center gap-2">
+                    <span class="bg-red-500 text-white px-2 py-1 rounded">4x</span> Very High Priority
+                </span>
+                <span class="flex items-center gap-2">
+                    <span class="bg-orange-500 text-white px-2 py-1 rounded">3x</span> High Priority
+                </span>
+                <span class="flex items-center gap-2">
+                    <span class="bg-yellow-500 text-white px-2 py-1 rounded">2x</span> Medium Priority
+                </span>
+                <span class="flex items-center gap-2">
+                    <span class="bg-green-500 text-white px-2 py-1 rounded">1x</span> Asked Once
+                </span>
+            </div>
+            <div class="mt-2 text-sm text-gray-600">
+                <strong>Papers:</strong> 1A = Dec 24-Jan 25 | 1B = June-July 24 | 2A = Model 2023-24 | 2B = Model
+                2022-23
+            </div>
+
+            <div class="mt-4 border-t pt-3">
+                <h4 class="font-bold text-sm mb-2 text-gray-800">Answer Sources:</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <ul class="list-none text-sm text-gray-700 space-y-2">
+                            <li class="flex items-start gap-2">
+                                <span class="font-semibold text-blue-600">1.</span>
+                                <div>
+                                    <span class="font-medium">YouTube Video:</span>
+                                    <a href="https://www.youtube.com/watch?v=VUwJd1Maqns&t=41s" target="_blank"
+                                        class="text-blue-600 hover:underline inline-flex items-center gap-1 ml-1">
+                                        Watch Here <i data-lucide="external-link" class="w-3 h-3"></i>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="font-semibold text-blue-600">2.</span>
+                                <div>
+                                    <span class="font-medium">Important Question PDF:</span>
+                                    <span class="text-gray-500 italic ml-1">(Refer to sent document)</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                    <div class="bg-blue-50 p-2 rounded border border-blue-100">
+                        <span class="font-bold text-blue-800 block text-xs uppercase tracking-wider mb-1">Paper 1A
+                            Priority</span>
+                        <div class="text-gray-700 font-medium text-xs">Evaluation Scheme > Important Question = YouTube
+                            Video</div>
+                    </div>
+                    <div class="bg-purple-50 p-2 rounded border border-purple-100">
+                        <span class="font-bold text-purple-800 block text-xs uppercase tracking-wider mb-1">Paper 2B
+                            Priority</span>
+                        <div class="text-gray-700 font-medium text-xs">Solved Paper > Important Question = YouTube Video
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex space-x-1 rounded-xl bg-gray-200 p-1 mb-6 w-fit">
+            <button id="tab-module"
+                class="w-full rounded-lg py-2.5 px-4 text-sm font-medium leading-5 text-blue-700 bg-white shadow"
+                onclick="switchTab('module')">
+                Module Wise
+            </button>
+            <button id="tab-paper"
+                class="w-full rounded-lg py-2.5 px-4 text-sm font-medium leading-5 text-gray-600 hover:text-blue-600"
+                onclick="switchTab('paper')">
+                Paper Wise
+            </button>
+            <button id="tab-plan"
+                class="w-full rounded-lg py-2.5 px-4 text-sm font-medium leading-5 text-gray-600 hover:text-blue-600"
+                onclick="switchTab('plan')">
+                Study Plan
+            </button>
+            <button id="tab-logic"
+                class="w-full rounded-lg py-2.5 px-4 text-sm font-medium leading-5 text-gray-600 hover:text-blue-600"
+                onclick="switchTab('logic')">
+                Logic
+            </button>
+        </div>
+
+        <div id="modules-container"></div>
+    </div>
+
+    <script>
+        const modules = {
+            module1: {
+                title: "Module 1 - Introduction to AI & Agents",
+                questions: [
+                    {
+                        question: "Define Artificial Intelligence. Explain the foundations of AI in detail.",
+                        frequency: 2,
+                        marks: [10, 10],
+                        papers: ["2A", "1A"],
+                        details: ["2A: Define Artificial Intelligence. Explain the foundations of AI in detail.", "1A: What is Artificial Intelligence? Explain the four approaches of Artificial Intelligence in detail."],
+                        tags: ["Define", "Explain", "Theory"]
+                    },
+                    {
+                        question: "Explain various types of Agent in Artificial Intelligence with diagrams.",
+                        frequency: 3,
+                        marks: [8, 8, 10],
+                        papers: ["1B", "1A", "2B"],
+                        details: ["1B: With a neat diagram explain: i) Utility-based agents ii) Learning agents.", "1A: Write pseudocode agent programs for the goal-based and utility-based agents.", "2B: Define Agent. Explain any 3 types of Agent in Artificial Intelligence."],
+                        tags: ["Diagram", "Explain", "Pseudocode"]
+                    },
+                    {
+                        question: "Explain various types of Environment in Artificial Intelligence / Properties of task environments.",
+                        frequency: 3,
+                        marks: [7, 10, 10],
+                        papers: ["1B", "2B", "2A"],
+                        details: ["1B: Briefly explain the properties of task environments.", "2B: Explain various types of Environment in Artificial Intelligence.", "2A: Differentiate: i. Fully observable vs partially observable ii. Single agent vs Multiagent iii. Deterministic vs Stochastic iv. Static vs Dynamic."],
+                        tags: ["Explain", "Differentiate", "Theory"]
+                    },
+                    {
+                        question: "Give PEAS specification/description for given scenarios.",
+                        frequency: 3,
+                        marks: [7, 10, 10],
+                        papers: ["1A", "2A", "2A"],
+                        details: ["1A: For each of the following activities give a PEAS description: i) Playing a tennis match ii) Performing a high jump iii) Bidding on an item in an auction.", "2A: Discuss the PEAS specification of Biometric Authentication System.", "2A: Give PEAS specification for Automated Taxi Driver."],
+                        tags: ["Apply", "PEAS", "Design"]
+                    },
+                    {
+                        question: "What Artificial Intelligence can do today? Explain various application domains of Artificial Intelligence.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["1B"],
+                        details: ["What Artificial Intelligence can do today? Explain various application domains of Artificial Intelligence."],
+                        tags: ["Explain", "Applications", "Theory"]
+                    },
+                    {
+                        question: "With the help of a block diagram, explain how agents interact with task environments.",
+                        frequency: 1,
+                        marks: [5],
+                        papers: ["1B"],
+                        details: ["With the help of a block diagram, explain how agents interact with task environments."],
+                        tags: ["Block Diagram", "Explain", "Drawing"]
+                    },
+                    {
+                        question: "Define the following: i) Intelligence ii) Artificial Intelligence iii) Agent iv) Rationality v) Logical reasoning.",
+                        frequency: 1,
+                        marks: [5],
+                        papers: ["1A"],
+                        details: ["Define the following: i) Intelligence ii) Artificial Intelligence iii) Agent iv) Rationality v) Logical reasoning."],
+                        tags: ["Define", "Theory"]
+                    },
+                    {
+                        question: "Examine the AI literature to discover whether the following tasks can currently be solved by computers: i) Playing a decent game of table tennis (ping-pong) ii) Discovering and proving new mathematical theorems iii) Giving competent legal advice in a specialized area of law iv) Performing a complex surgical operation.",
+                        frequency: 1,
+                        marks: [8],
+                        papers: ["1A"],
+                        details: ["Examine the AI literature to discover whether the following tasks can currently be solved by computers: i) Playing a decent game of table tennis (ping-pong) ii) Discovering and proving new mathematical theorems iii) Giving competent legal advice in a specialized area of law iv) Performing a complex surgical operation."],
+                        tags: ["Examine", "Research", "Analysis"]
+                    },
+                    {
+                        question: "Implement a simple reflex agent for the vacuum environment. Run the environment with this agent for all possible initial dirt configurations and agent locations. Record the performance score for each configuration and the overall score.",
+                        frequency: 1,
+                        marks: [7],
+                        papers: ["1A"],
+                        details: ["Implement a simple reflex agent for the vacuum environment. Run the environment with this agent for all possible initial dirt configurations and agent locations. Record the performance score for each configuration and the overall score."],
+                        tags: ["Implementation", "Code", "Practical"]
+                    },
+                    {
+                        question: "Is AI a science, or is it engineering or neither or both? Explain.",
+                        frequency: 1,
+                        marks: [5],
+                        papers: ["1A"],
+                        details: ["Is AI a science, or is it engineering or neither or both? Explain."],
+                        tags: ["Explain", "Theory", "Discussion"]
+                    },
+                    {
+                        question: "Define Artificial Intelligence? Explain Turing test approach with example.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["2B"],
+                        details: ["Define Artificial Intelligence? Explain Turing test approach with example."],
+                        tags: ["Define", "Explain", "Example"]
+                    },
+                    {
+                        question: "Explain the concept of Rationality in Detail.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["2B"],
+                        details: ["Explain the concept of Rationality in Detail."],
+                        tags: ["Explain", "Theory"]
+                    }
+                ]
+            },
+            module2: {
+                title: "Module 2 - Problem Solving & Search",
+                questions: [
+                    {
+                        question: "Explain Breadth-first search (BFS) and Depth-first search (DFS) strategies with suitable example.",
+                        frequency: 4,
+                        marks: [10, 10, 10, 10],
+                        papers: ["1B", "2A", "2B", "2B"],
+                        details: ["1B: Illustrate Breadth-first search and Depth-first search strategies with suitable example.", "2A: For the graph given below (S, A, B, C, D, G) apply BFS and DFS Search algorithm.", "2B: Discuss how BFS and IDDFS work in Artificial Intelligence with examples.", "2B: Explain how DFS and uniform-cost Search algorithm works in AI with suitable examples."],
+                        tags: ["Explain", "Algorithm", "Example", "Apply"]
+                    },
+                    {
+                        question: "Explain problem solving agent / How PSA solves problems (like 8-Puzzle).",
+                        frequency: 3,
+                        marks: [5, 10, 10],
+                        papers: ["1B", "2B", "2B"],
+                        details: ["1B: List and define the four phases of problem-solving process.", "2B: Explain problem solving agent in detail with suitable example.", "2B: Explain how PSA solves 8-Puzzle Problem in detail."],
+                        tags: ["Explain", "Theory", "Example"]
+                    },
+                    {
+                        question: "Define a search problem formally / Problem formulation with examples (8-puzzle, Graph coloring, Monkey-Banana).",
+                        frequency: 3,
+                        marks: [10, 8, 10],
+                        papers: ["1B", "1A", "2A"],
+                        details: ["1B: Explain how a search problem can be formally defined. Illustrate the same for the Vacuum world problem.", "1A: Give complete problem formulation for each of the following; choose a formulation that is precise enough to be implemented: i) Using only four colors, you have to color a planar graph in such a way that no two adjacent regions have the same color. ii) A 3 foot tall monkey is in a room where some bananas are suspended from the 8-foot ceiling. He would like to get the bananas. The room contains two stackable, moveable, climbable 3-foot high crates.", "2A: Explain five components and well-defined problem. Consider an 8-puzzle problem as an example."],
+                        tags: ["Explain", "Define", "Problem Formulation", "Example"]
+                    },
+                    {
+                        question: "Explain/Draw state space for vacuum world problem.",
+                        frequency: 2,
+                        marks: [5, 10],
+                        papers: ["1B", "2A"],
+                        details: ["1B: Write the state-space graph for the two-cell vacuum world problem.", "2A: In detail elaborate with neat diagram, the state space for the vacuum world. Links denote actions: L Left, R Right, S Suck."],
+                        tags: ["Diagram", "State Space", "Drawing"]
+                    },
+                    {
+                        question: "Explain Depth Limited Search and Iterative Deepening DFS (IDDFS) Search with an example.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["2A"],
+                        details: ["Explain Depth Limited Search and Iterative Deepening DFS Search with an example."],
+                        tags: ["Explain", "Algorithm", "Example"]
+                    },
+                    {
+                        question: "Explain the different metrics used to evaluate an algorithm's performance.",
+                        frequency: 1,
+                        marks: [6],
+                        papers: ["1B"],
+                        details: ["Explain the different metrics used to evaluate an algorithm's performance."],
+                        tags: ["Explain", "Theory"]
+                    },
+                    {
+                        question: "List and explain the three kinds of queues used in Best-first search method.",
+                        frequency: 1,
+                        marks: [4],
+                        papers: ["1B"],
+                        details: ["List and explain the three kinds of queues used in Best-first search method."],
+                        tags: ["List", "Explain", "Theory"]
+                    },
+                    {
+                        question: "Explain why problem formulation must follow goal transformation.",
+                        frequency: 1,
+                        marks: [5],
+                        papers: ["1A"],
+                        details: ["Explain why problem formulation must follow goal transformation."],
+                        tags: ["Explain", "Theory"]
+                    },
+                    {
+                        question: "Prove each of the following statements or give counter example: i) Breadth-first search is a special case of uniform-cost search. ii) Uniform-cost search is a special case of A* search.",
+                        frequency: 1,
+                        marks: [7],
+                        papers: ["1A"],
+                        details: ["Prove each of the following statements or give counter example: i) Breadth-first search is a special case of uniform-cost search. ii) Uniform-cost search is a special case of A* search."],
+                        tags: ["Prove", "Theory"]
+                    },
+                    {
+                        question: "Define the following terms with example: i) State space ii) Search node iii) Transition model iv) Branching factor.",
+                        frequency: 1,
+                        marks: [8],
+                        papers: ["1A"],
+                        details: ["Define the following terms with example: i) State space ii) Search node iii) Transition model iv) Branching factor."],
+                        tags: ["Define", "Example"]
+                    },
+                    {
+                        question: "Show that the 8-puzzle states are divided into two disjoint sets, such that any state is reachable from any other state in the same set, while no state is reachable from any state in the other set. Devise a procedure to decide which set a given state is in and explain why this is useful for generating random state.",
+                        frequency: 1,
+                        marks: [7],
+                        papers: ["1A"],
+                        details: ["Show that the 8-puzzle states are divided into two disjoint sets, such that any state is reachable from any other state in the same set, while no state is reachable from any state in the other set. Devise a procedure to decide which set a given state is in and explain why this is useful for generating random state."],
+                        tags: ["Prove", "Procedure", "Theory"]
+                    },
+                    {
+                        question: "Describe a state space in which iterative deepening search performs much worse than depth-first search (for example, O(b^d) Vs O(d^2)).",
+                        frequency: 1,
+                        marks: [5],
+                        papers: ["1A"],
+                        details: ["Describe a state space in which iterative deepening search performs much worse than depth-first search (for example, O(b^d) Vs O(d^2))."],
+                        tags: ["Describe", "Analysis", "Theory"]
+                    }
+                ]
+            },
+            module3: {
+                title: "Module 3 - Informed Search & Knowledge-Based Agents",
+                questions: [
+                    {
+                        question: "Apply/Explain Greedy Best-First Search and A* Search algorithm with examples/given graph.",
+                        frequency: 4,
+                        marks: [10, 10, 10, 10],
+                        papers: ["1B", "2A", "2A", "2B"],
+                        details: ["1B: Apply Greedy best-first search algorithm to the following graph (Start A to Goal) and show the various stages in computing the solution tree.", "2A: In the below graph, find the path from A to G using Greedy Best First search and A* search algorithm. (Heuristic values given: A:5, B:6, C:4, D:15, E:3, F:1, G:0).", "2A: Apply the A* search to find the solution path from a to z. Write all steps as well as open and closed lists.", "2B: Define Heuristic Function. Explain A* Search Algorithm for minimizing the total estimated solution cost."],
+                        tags: ["Apply", "Algorithm", "Example", "Explain"]
+                    },
+                    {
+                        question: "Explain Knowledge-based agents with algorithm/TELL and ASK functions.",
+                        frequency: 3,
+                        marks: [10, 6, 10],
+                        papers: ["2A", "1B", "2B"],
+                        details: ["2A: Explain the Knowledge-based agents with an algorithm and explain the TELL and ASK functions used for same.", "1B: Briefly explain Knowledge-Based Agents.", "2B: With a neat diagram explain Knowledge based Agent."],
+                        tags: ["Explain", "Algorithm", "Diagram"]
+                    },
+                    {
+                        question: "Explain Wumpus World problem in detail / PEAS description / Propositional logic proof.",
+                        frequency: 3,
+                        marks: [10, 10, 10],
+                        papers: ["1B", "2A", "2B"],
+                        details: ["1B: Using PEAS description, represent the Wumpus World problem.", "2A: Considering Wumpus world example give the characteristics and simple knowledge base using propositional logic and Prove that Wumpus is in the room (1, 3).", "2B: Explain Wumpus world problem in detail."],
+                        tags: ["Explain", "PEAS", "Prove", "Propositional Logic"]
+                    },
+                    {
+                        question: "Explain syntax and semantics of Propositional Logic with suitable example.",
+                        frequency: 2,
+                        marks: [4, 10],
+                        papers: ["1B", "2B"],
+                        details: ["1B: Explain in detail syntax and semantics of propositional logic.", "2B: Explain Propositional Logic syntax and Semantics with suitable example."],
+                        tags: ["Explain", "Theory", "Example"]
+                    },
+                    {
+                        question: "Explain different methods of deriving heuristics.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["1B"],
+                        details: ["Explain different methods of deriving heuristics."],
+                        tags: ["Explain", "Theory"]
+                    },
+                    {
+                        question: "Devise a state space in which A* using GRAPH-SEARCH returns a suboptimal solution with h(n) function that is admissible but inconsistent.",
+                        frequency: 1,
+                        marks: [7],
+                        papers: ["1A"],
+                        details: ["Devise a state space in which A* using GRAPH-SEARCH returns a suboptimal solution with h(n) function that is admissible but inconsistent."],
+                        tags: ["Design", "Theory", "Analysis"]
+                    },
+                    {
+                        question: "Which of the following are correct? i) A ∨ B ⇒ A ii) A ∨ B ⇒ A ∧ B iii) A ∨ (B ∧ C) is satisfiable iv) (A ∨ B) ∧ (¬A ∨ ¬B) has the same number of models as A ⊕ B.",
+                        frequency: 1,
+                        marks: [8],
+                        papers: ["1A"],
+                        details: ["Which of the following are correct? i) A ∨ B ⇒ A ii) A ∨ B ⇒ A ∧ B iii) A ∨ (B ∧ C) is satisfiable iv) (A ∨ B) ∧ (¬A ∨ ¬B) has the same number of models as A ⊕ B."],
+                        tags: ["Verify", "Propositional Logic", "Theory"]
+                    },
+                    {
+                        question: "Consider a vocabulary with only four propositions, A, B, C and D. How many models are there for the following sentences: i) (A ∨ B) ∧ ¬C ii) (A ⊕ B) ∧ (¬C ⊕ D) iii) (A ∨ B) ∧ (¬C ∨ D).",
+                        frequency: 1,
+                        marks: [5],
+                        papers: ["1A"],
+                        details: ["Consider a vocabulary with only four propositions, A, B, C and D. How many models are there for the following sentences: i) (A ∨ B) ∧ ¬C ii) (A ⊕ B) ∧ (¬C ⊕ D) iii) (A ∨ B) ∧ (¬C ∨ D)."],
+                        tags: ["Calculate", "Propositional Logic", "Theory"]
+                    },
+                    {
+                        question: "Prove that if a heuristic is consistent, it must be admissible. Construct an admissible heuristic that is not consistent.",
+                        frequency: 1,
+                        marks: [8],
+                        papers: ["1A"],
+                        details: ["Prove that if a heuristic is consistent, it must be admissible. Construct an admissible heuristic that is not consistent."],
+                        tags: ["Prove", "Theory", "Construction"]
+                    },
+                    {
+                        question: "Prove each of the following assertions: i) α ⊨ β if and only if the sentence (α ⇒ β) is valid. ii) α ⊨ β if and only if the sentence (α ∧ ¬β) is unsatisfiable.",
+                        frequency: 1,
+                        marks: [7],
+                        papers: ["1A"],
+                        details: ["Prove each of the following assertions: i) α ⊨ β if and only if the sentence (α ⇒ β) is valid. ii) α ⊨ β if and only if the sentence (α ∧ ¬β) is unsatisfiable."],
+                        tags: ["Prove", "Propositional Logic", "Theory"]
+                    },
+                    {
+                        question: "Prove, or find a counter example to each of the following assertions: i) If α ⊨ (β ∨ γ) then α ⊨ β and α ⊨ γ. ii) If α ⊨ (β ∧ γ) then α ⊨ β and α ⊨ γ (or both).",
+                        frequency: 1,
+                        marks: [5],
+                        papers: ["1A"],
+                        details: ["Prove, or find a counter example to each of the following assertions: i) If α ⊨ (β ∨ γ) then α ⊨ β and α ⊨ γ. ii) If α ⊨ (β ∧ γ) then α ⊨ β and α ⊨ γ (or both)."],
+                        tags: ["Prove", "Counter Example", "Theory"]
+                    }
+                ]
+            },
+            module4: {
+                title: "Module 4 - First-Order Logic & Inference",
+                questions: [
+                    {
+                        question: "Explain syntax and semantics of First-order Logic with suitable Examples.",
+                        frequency: 3,
+                        marks: [10, 10, 10],
+                        papers: ["1B", "2A", "2B"],
+                        details: ["1B: Explain in detail, syntax of first-order logic.", "2A: List the drawbacks of Propositional Logic. Explain the Syntax and Semantics in First-order Logic.", "2B: Explain syntax and semantics of First-order Logic with suitable Examples."],
+                        tags: ["Explain", "Theory", "Example"]
+                    },
+                    {
+                        question: "Explain forward-chaining algorithm with an example.",
+                        frequency: 3,
+                        marks: [10, 10, 10],
+                        papers: ["1B", "2B", "2A"],
+                        details: ["1B: Explain simple forward-chaining algorithm with an example.", "2B: Explain forward chaining with example.", "2A: Define Universal and Existential Instantiation and give examples for both. Prove the following using Forward chaining: 'As per the law, it is a crime for an American to sell weapons to hostile nations. Country E, an enemy of America, has some missiles, and all the missiles were sold to it by Solan, who is an American citizen.' Prove that 'Solan is criminal.'"],
+                        tags: ["Explain", "Algorithm", "Example", "Prove"]
+                    },
+                    {
+                        question: "Explain Unification algorithm/in Artificial Intelligence with Example.",
+                        frequency: 2,
+                        marks: [10, 10],
+                        papers: ["1B", "2B"],
+                        details: ["1B: Write Unification algorithm. Explain with suitable example.", "2B: Explain Unification in Artificial Intelligence with Example."],
+                        tags: ["Algorithm", "Explain", "Example"]
+                    },
+                    {
+                        question: "Explain various steps in the knowledge engineering process / with digital circuit example.",
+                        frequency: 2,
+                        marks: [10, 10],
+                        papers: ["1B", "2B"],
+                        details: ["1B: Explain various steps in the knowledge engineering process.", "2B: Explain the steps involved in Knowledge Engineering with Example."],
+                        tags: ["Explain", "Process", "Example"]
+                    },
+                    {
+                        question: "Considering the digital circuit example illustrate the seven steps in knowledge engineering process.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["2A"],
+                        details: ["Considering the digital circuit example illustrate the seven steps in knowledge engineering process."],
+                        tags: ["Illustrate", "Example", "Process"]
+                    },
+                    {
+                        question: "Explain the following with respect to the first-order logic: i. Assertions and Queries in First-order logic ii. The kinship domain iii. Numbers, sets and lists.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["2A"],
+                        details: ["Explain the following with respect to the first-order logic: i. Assertions and Queries in First-order logic ii. The kinship domain iii. Numbers, sets and lists."],
+                        tags: ["Explain", "Theory"]
+                    },
+                    {
+                        question: "Which of the following are valid necessary true sentences? i) ∀x x = x ii) ∀x, y x = y iii) ∀x P(x) ∨ ¬P(x).",
+                        frequency: 1,
+                        marks: [7],
+                        papers: ["1A"],
+                        details: ["Which of the following are valid necessary true sentences? i) ∀x x = x ii) ∀x, y x = y iii) ∀x P(x) ∨ ¬P(x)."],
+                        tags: ["Verify", "Theory", "First-Order Logic"]
+                    },
+                    {
+                        question: "Prove that universal Instantiation is sound that existential instantiation produces an inferentially equivalent knowledge base.",
+                        frequency: 1,
+                        marks: [5],
+                        papers: ["1A"],
+                        details: ["Prove that universal Instantiation is sound that existential instantiation produces an inferentially equivalent knowledge base."],
+                        tags: ["Prove", "Theory"]
+                    },
+                    {
+                        question: "Write down logical representations for the following sentences, suitable for use with generalized modus ponens: i) Horses, cows and pigs are mammals ii) Bluebeard is Charlie's parent iii) Offspring and parent are inverse relations.",
+                        frequency: 1,
+                        marks: [8],
+                        papers: ["1A"],
+                        details: ["Write down logical representations for the following sentences, suitable for use with generalized modus ponens: i) Horses, cows and pigs are mammals ii) Bluebeard is Charlie's parent iii) Offspring and parent are inverse relations."],
+                        tags: ["Write", "Logical Representation", "Apply"]
+                    },
+                    {
+                        question: "Consider a knowledge base containing just two sentences: P(a) and P(a) ⇒ P(b). Does this knowledge base entail ∀x P(x)? Explain your answer in terms of models.",
+                        frequency: 1,
+                        marks: [5],
+                        papers: ["1A"],
+                        details: ["Consider a knowledge base containing just two sentences: P(a) and P(a) ⇒ P(b). Does this knowledge base entail ∀x P(x)? Explain your answer in terms of models."],
+                        tags: ["Explain", "Theory", "Analysis"]
+                    },
+                    {
+                        question: "Suppose knowledge base contains just one sentence, ∃x P(x). Which of the following are legitimate results of applying existential instantiation? i) P(A) ii) P(x).",
+                        frequency: 1,
+                        marks: [8],
+                        papers: ["1A"],
+                        details: ["Suppose knowledge base contains just one sentence, ∃x P(x). Which of the following are legitimate results of applying existential instantiation? i) P(A) ii) P(x)."],
+                        tags: ["Verify", "Theory", "Inference"]
+                    },
+                    {
+                        question: "Explain how to write any 3-SAT problem of arbitrary size using a single first-order definite clause and no more than 30 ground facts.",
+                        frequency: 1,
+                        marks: [7],
+                        papers: ["1A"],
+                        details: ["Explain how to write any 3-SAT problem of arbitrary size using a single first-order definite clause and no more than 30 ground facts."],
+                        tags: ["Explain", "Theory", "Application"]
+                    }
+                ]
+            },
+            module5: {
+                title: "Module 5 - Backward Chaining, Resolution & Planning",
+                questions: [
+                    {
+                        question: "Explain Backward-chaining algorithm with an example.",
+                        frequency: 4,
+                        marks: [10, 10, 10, 10],
+                        papers: ["1B", "2A", "2B", "1A"],
+                        details: ["1B: Explain Backward-chaining algorithm with an example.", "2A: Explain Backward-chaining algorithm with an example.", "2B: Explain Backward-chaining with example.", "1A: Give a backward-chaining proof of the sentence 7+3≤3+9.. Show only the steps that lead to success."],
+                        tags: ["Explain", "Algorithm", "Example", "Prove"]
+                    },
+                    {
+                        question: "Explain the concept of Resolution in First-order Logic / AI with appropriate procedure.",
+                        frequency: 2,
+                        marks: [10, 10],
+                        papers: ["2A", "2B"],
+                        details: ["2A: Explain the concept of Resolution in First-order Logic with appropriate procedure.", "2B: Explain the concept of Resolution in AI."],
+                        tags: ["Explain", "Theory", "Procedure"]
+                    },
+                    {
+                        question: "Illustrate the procedure to convert a sentence of first-order logic to Conjunctive Normal Form (CNF).",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["1B"],
+                        details: ["Illustrate the procedure to convert a sentence of first-order logic to Conjunctive Normal Form (CNF)."],
+                        tags: ["Illustrate", "Procedure", "Theory"]
+                    },
+                    {
+                        question: "Illustrate categories and objects with suitable examples.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["1B"],
+                        details: ["Illustrate categories and objects with suitable examples."],
+                        tags: ["Illustrate", "Example", "Theory"]
+                    },
+                    {
+                        question: "Explain the following with respect to events: i) Time ii) Fluents and objects.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["1B"],
+                        details: ["Explain the following with respect to events: i) Time ii) Fluents and objects."],
+                        tags: ["Explain", "Theory"]
+                    },
+                    {
+                        question: "Define Classical Planning. With the blocks world example explain the same in detail.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["2A"],
+                        details: ["Define Classical Planning. With the blocks world example explain the same in detail."],
+                        tags: ["Define", "Explain", "Example"]
+                    },
+                    {
+                        question: "Write appropriate quantifiers for: Some students read well; Some students like some books; Some students like all books; All students like some books; All students like no books.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["2A"],
+                        details: ["Write appropriate quantifiers for: Some students read well; Some students like some books; Some students like all books; All students like some books; All students like no books."],
+                        tags: ["Write", "Logical Representation", "Apply"]
+                    },
+                    {
+                        question: "Explain the two approaches to searching for a plan in detail.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["2A"],
+                        details: ["Explain the two approaches to searching for a plan in detail."],
+                        tags: ["Explain", "Theory"]
+                    },
+                    {
+                        question: "Explain Graph Plan Algorithm.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["2B"],
+                        details: ["Explain Graph Plan Algorithm."],
+                        tags: ["Explain", "Algorithm"]
+                    },
+                    {
+                        question: "How state space search is done in AI discuss.",
+                        frequency: 1,
+                        marks: [10],
+                        papers: ["2B"],
+                        details: ["How state space search is done in AI discuss."],
+                        tags: ["Discuss", "Theory"]
+                    },
+                    {
+                        question: "Give a forward-chaining proof of the sentence Hungry(Pat). Show only the steps that lead to success.",
+                        frequency: 1,
+                        marks: [8],
+                        papers: ["1A"],
+                        details: ["Give a forward-chaining proof of the sentence Hungry(Pat). Show only the steps that lead to success."],
+                        tags: ["Prove", "Algorithm", "Apply"]
+                    },
+                    {
+                        question: "Describe the differences and similarities between problem solving and planning.",
+                        frequency: 1,
+                        marks: [5],
+                        papers: ["1A"],
+                        details: ["Describe the differences and similarities between problem solving and planning."],
+                        tags: ["Describe", "Comparison", "Theory"]
+                    },
+                    {
+                        question: "Prove that backward search with PDDL problems is complete.",
+                        frequency: 1,
+                        marks: [7],
+                        papers: ["1A"],
+                        details: ["Prove that backward search with PDDL problems is complete."],
+                        tags: ["Prove", "Theory"]
+                    },
+                    {
+                        question: "The following prolog code defines a predicate P(X,Y): P(X,[X|Y]). P(X,[Y|Z]) :- P(X,Z). Show proof trees and solutions for the queries P(A,[2,1,3]) and P(2,[1,A,3]). What standard list operation does P represent?",
+                        frequency: 1,
+                        marks: [8],
+                        papers: ["1A"],
+                        details: ["The following prolog code defines a predicate P(X,Y): P(X,[X|Y]). P(X,[Y|Z]) :- P(X,Z). Show proof trees and solutions for the queries P(A,[2,1,3]) and P(2,[1,A,3]). What standard list operation does P represent?"],
+                        tags: ["Prolog", "Proof Tree", "Code Analysis"]
+                    },
+                    {
+                        question: "Explain why dropping negative effects from every action schema in a planning problem results in a relaxed problems.",
+                        frequency: 1,
+                        marks: [5],
+                        papers: ["1A"],
+                        details: ["Explain why dropping negative effects from every action schema in a planning problem results in a relaxed problems."],
+                        tags: ["Explain", "Theory", "Planning"]
+                    },
+                    {
+                        question: "Prove the following assertions about planning graphs: i) A literal that does not appear in the final level of the graph cannot be achieved. ii) The level cost of a literal in a serial graph is no greater than the actual cost of an optimal plan for achieving it.",
+                        frequency: 1,
+                        marks: [7],
+                        papers: ["1A"],
+                        details: ["Prove the following assertions about planning graphs: i) A literal that does not appear in the final level of the graph cannot be achieved. ii) The level cost of a literal in a serial graph is no greater than the actual cost of an optimal plan for achieving it."],
+                        tags: ["Prove", "Theory", "Planning Graphs"]
+                    }
+                ]
+            }
+        };
+
+        const paperQuestions = {
+            '1A': {
+                name: 'Dec 2024 - Jan 2025 (1A)',
+                color: 'from-blue-600 to-blue-800',
+                modules: {
+                    'Module 1': [
+                        { qNum: 'Q.1 a', question: 'Define the following: i) Intelligence ii) Artificial Intelligence iii) Agent iv) Rationality v) Logical reasoning.', marks: 5, tags: ['Define', 'Theory'] },
+                        { qNum: 'Q.1 b', question: 'Examine the AI literature to discover whether the following tasks can currently be solved by computers: i) Playing a decent game of table tennis (ping-pong) ii) Discovering and proving new mathematical theorems iii) Giving competent legal advice in a specialized area of law iv) Performing a complex surgical operation.', marks: 8, tags: ['Examine', 'Research', 'Analysis'] },
+                        { qNum: 'Q.1 c', question: 'Implement a simple reflex agent for the vacuum environment. Run the environment with this agent for all possible initial dirt configurations and agent locations. Record the performance score for each configuration and the overall score.', marks: 7, tags: ['Implementation', 'Code', 'Practical'] },
+                        { qNum: 'Q.2 a', question: 'Is AI a science, or is it engineering or neither or both? Explain.', marks: 5, tags: ['Explain', 'Discussion'] },
+                        { qNum: 'Q.2 b', question: 'Write pseudocode agent programs for the goal-based and utility-based agents.', marks: 8, tags: ['Pseudocode', 'Algorithm'] },
+                        { qNum: 'Q.2 c', question: 'For each of the following activities give a PEAS description: i) Playing a tennis match ii) Performing a high jump iii) Bidding on an item in an auction.', marks: 7, tags: ['PEAS', 'Apply', 'Design'] }
+                    ],
+                    'Module 2': [
+                        { qNum: 'Q.3 a', question: 'Explain why problem formulation must follow goal transformation.', marks: 5, tags: ['Explain', 'Theory'] },
+                        { qNum: 'Q.3 b', question: 'Give complete problem formulation for each of the following; choose a formulation that is precise enough to be implemented: i) Using only four colors, you have to color a planar graph in such a way that no two adjacent regions have the same color. ii) A 3 foot tall monkey is in a room where some bananas are suspended from the 8-foot ceiling. He would like to get the bananas. The room contains two stackable, moveable, climbable 3-foot high crates.', marks: 8, tags: ['Problem Formulation', 'Apply'] },
+                        { qNum: 'Q.3 c', question: 'Prove each of the following statements or given counter example: i) Breadth-first search is a special case of uniform-cost search. ii) Uniform-cost search is a special case of A* search.', marks: 7, tags: ['Prove', 'Theory'] },
+                        { qNum: 'Q.4 a', question: 'Define the following terms with example: i) State space ii) Search node iii) Transition model iv) Branching factor.', marks: 8, tags: ['Define', 'Example'] },
+                        { qNum: 'Q.4 b', question: 'Show that the 8-puzzle states are divided into two disjoint sets, such that any state is reachable from any other state in the same set, while no state is reachable from any state in the other set. Devise a procedure to decide which set a given state is in and explain why this is useful for generating random state.', marks: 7, tags: ['Prove', 'Procedure'] },
+                        { qNum: 'Q.4 c', question: 'Describe a state space in which iterative deepening search performs much worse than depth-first search (for example, O(b^d) Vs O(d^2)).', marks: 5, tags: ['Describe', 'Analysis'] }
+                    ],
+                    'Module 3': [
+                        { qNum: 'Q.5 a', question: 'Devise a state space in which A* using GRAPH-SEARCH returns a suboptimal solution with h(n) function that is admissible but inconsistent.', marks: 7, tags: ['Design', 'Analysis'] },
+                        { qNum: 'Q.5 b', question: 'Which of the following are correct? i) A ∨ B ⇒ A ii) A ∨ B ⇒ A ∧ B iii) A ∨ (B ∧ C) is satisfiable iv) (A ∨ B) ∧ (¬A ∨ ¬B) has the same number of models as A ⊕ B.', marks: 8, tags: ['Verify', 'Propositional Logic'] },
+                        { qNum: 'Q.5 c', question: 'Consider a vocabulary with only four propositions, A, B, C and D. How many models are there for the following sentences: i) (A ∨ B) ∧ ¬C ii) (A ⊕ B) ∧ (¬C ⊕ D) iii) (A ∨ B) ∧ (¬C ∨ D).', marks: 5, tags: ['Calculate', 'Theory'] },
+                        { qNum: 'Q.6 a', question: 'Prove that if a heuristic is consistent, it must be admissible. Construct an admissible heuristic that is not consistent.', marks: 8, tags: ['Prove', 'Construction'] },
+                        { qNum: 'Q.6 b', question: 'Prove each of the following assertions: i) α ⊨ β if and only if the sentence (α ⇒ β) is valid. ii) α ⊨ β if and only if the sentence (α ∧ ¬β) is unsatisfiable.', marks: 7, tags: ['Prove', 'Theory'] },
+                        { qNum: 'Q.6 c', question: 'Prove, or find a counter example to each of the following assertions: i) If α ⊨ (β ∨ γ) then α ⊨ β and α ⊨ γ. ii) If α ⊨ (β ∧ γ) then α ⊨ β and α ⊨ γ (or both).', marks: 5, tags: ['Prove', 'Counter Example'] }
+                    ],
+                    'Module 4': [
+                        { qNum: 'Q.7 a', question: 'Which of the following are valid necessary true sentences? i) ∀x x = x ii) ∀x, y x = y iii) ∀x P(x) ∨ ¬P(x).', marks: 7, tags: ['Verify', 'First-Order Logic'] },
+                        { qNum: 'Q.7 b', question: 'Prove that universal Instantiation is sound that existential instantiation produces an inferentially equivalent knowledge base.', marks: 5, tags: ['Prove', 'Theory'] },
+                        { qNum: 'Q.7 c', question: 'Write down logical representations for the following sentences, suitable for use with generalized modus ponens: i) Horses, cows and pigs are mammals ii) Bluebeard is Charlie\'s parent iii) Offspring and parent are inverse relations.', marks: 8, tags: ['Write', 'Logical Representation'] },
+                        { qNum: 'Q.8 a', question: 'Consider a knowledge base containing just two sentences: P(a) and P(a) ⇒ P(b). Does this knowledge base entail ∀x P(x)? Explain your answer in terms of models.', marks: 5, tags: ['Explain', 'Analysis'] },
+                        { qNum: 'Q.8 b', question: 'Suppose knowledge base contains just one sentence, ∃x P(x). Which of the following are legitimate results of applying existential instantiation? i) P(A) ii) P(x).', marks: 8, tags: ['Verify', 'Inference'] },
+                        { qNum: 'Q.8 c', question: 'Explain how to write any 3-SAT problem of arbitrary size using a single first-order definite clause and no more than 30 ground facts.', marks: 7, tags: ['Explain', 'Application'] }
+                    ],
+                    'Module 5': [
+                        { qNum: 'Q.9 a.i', question: 'Give a backward-chaining proof of the sentence Hungry(Pat). Show only the steps that lead to success.', marks: 8, tags: ['Prove', 'Algorithm'] },
+                        { qNum: 'Q.9 a.ii', question: 'Give a forward-chaining proof of the sentence Hungry(Pat). Show only the steps that lead to success.', marks: 0, tags: ['Prove', 'Algorithm'] },
+                        { qNum: 'Q.9 b', question: 'Describe the differences and similarities between problem solving and planning.', marks: 5, tags: ['Describe', 'Comparison'] },
+                        { qNum: 'Q.9 c', question: 'Prove that backward search with PDDL problems is complete.', marks: 7, tags: ['Prove', 'Theory'] },
+                        { qNum: 'Q.10 a.i', question: 'The following prolog code defines a predicate P(X,Y): P(X,[X|Y]). P(X,[Y|Z]) :- P(X,Z). Show proof trees and solutions for the queries P(A,[2,1,3]) and P(2,[1,A,3]).', marks: 8, tags: ['Prolog', 'Proof Tree'] },
+                        { qNum: 'Q.10 a.ii', question: 'What standard list operation does P represent?', marks: 0, tags: ['Prolog', 'Analysis'] },
+                        { qNum: 'Q.10 b', question: 'Explain why dropping negative effects from every action schema in a planning problem results in a relaxed problems.', marks: 5, tags: ['Explain', 'Planning'] },
+                        { qNum: 'Q.10 c', question: 'Prove the following assertions about planning graphs: i) A literal that does not appear in the final level of the graph cannot be achieved. ii) The level cost of a literal in a serial graph is no greater than the actual cost of an optimal plan for achieving it.', marks: 7, tags: ['Prove', 'Planning Graphs'] }
+                    ]
+                }
+            },
+            '1B': {
+                name: 'June 2024 - July 2024 (1B)',
+                color: 'from-green-600 to-green-800',
+                modules: {
+                    'Module 1': [
+                        { qNum: 'Q.1 a', question: 'What is Artificial Intelligence? Explain the four approaches of Artificial Intelligence in detail.', marks: 10, tags: ['Define', 'Explain'] },
+                        { qNum: 'Q.1 b', question: 'What Artificial Intelligence can do today? Explain various application domains of Artificial Intelligence.', marks: 10, tags: ['Explain', 'Applications'] },
+                        { qNum: 'Q.2 a', question: 'With the help of a block diagram, explain how agents interact with task environments.', marks: 5, tags: ['Block Diagram', 'Explain'] },
+                        { qNum: 'Q.2 b', question: 'Briefly explain the properties of task environments.', marks: 7, tags: ['Explain', 'Theory'] },
+                        { qNum: 'Q.2 c', question: 'With a neat diagram explain the following: i) Utility-based agents ii) Learning agents.', marks: 8, tags: ['Diagram', 'Explain'] }
+                    ],
+                    'Module 2': [
+                        { qNum: 'Q.3 a', question: 'List and define the four phases of problem-solving process.', marks: 5, tags: ['List', 'Define'] },
+                        { qNum: 'Q.3 b', question: 'Explain how a search problem can be formally defined. Illustrate the same for the Vacuum world problem.', marks: 10, tags: ['Explain', 'Example'] },
+                        { qNum: 'Q.3 c', question: 'Write the state-space graph for the two-cell vacuum world problem.', marks: 5, tags: ['Drawing', 'State Space'] },
+                        { qNum: 'Q.4 a', question: 'Illustrate Breadth-first search and Depth-first search strategies with suitable example.', marks: 10, tags: ['Illustrate', 'Algorithm'] },
+                        { qNum: 'Q.4 b', question: 'Explain the different metrics used to evaluate an algorithm\'s performance.', marks: 6, tags: ['Explain', 'Theory'] },
+                        { qNum: 'Q.4 c', question: 'List and explain the three kinds of queues used in Best-first search method.', marks: 4, tags: ['List', 'Explain'] }
+                    ],
+                    'Module 3': [
+                        { qNum: 'Q.5 a', question: 'Apply Greedy best-first search algorithm to the following graph (Start A to Goal) and show the various stages in computing the solution tree.', marks: 10, tags: ['Apply', 'Algorithm'] },
+                        { qNum: 'Q.5 b', question: 'Explain different methods of deriving heuristics.', marks: 10, tags: ['Explain', 'Theory'] },
+                        { qNum: 'Q.6 a', question: 'Using PEAS description, represent the Wumpus World problem.', marks: 10, tags: ['PEAS', 'Apply'] },
+                        { qNum: 'Q.6 b', question: 'Briefly explain Knowledge-Based Agents.', marks: 6, tags: ['Explain', 'Theory'] },
+                        { qNum: 'Q.6 c', question: 'Explain in detail syntax and semantics of propositional logic.', marks: 4, tags: ['Explain', 'Theory'] }
+                    ],
+                    'Module 4': [
+                        { qNum: 'Q.7 a', question: 'Explain in detail, syntax of first-order logic.', marks: 10, tags: ['Explain', 'Theory'] },
+                        { qNum: 'Q.7 b', question: 'Explain various steps in the knowledge engineering process.', marks: 10, tags: ['Explain', 'Process'] },
+                        { qNum: 'Q.8 a', question: 'Write Unification algorithm. Explain with suitable example.', marks: 10, tags: ['Algorithm', 'Example'] },
+                        { qNum: 'Q.8 b', question: 'Explain simple forward-chaining algorithm with an example.', marks: 10, tags: ['Explain', 'Algorithm'] }
+                    ],
+                    'Module 5': [
+                        { qNum: 'Q.9 a', question: 'Explain Backward-chaining algorithm with an example.', marks: 10, tags: ['Explain', 'Algorithm'] },
+                        { qNum: 'Q.9 b', question: 'Illustrate the procedure to convert a sentence of first-order logic to Conjunctive Normal Form (CNF).', marks: 10, tags: ['Illustrate', 'Procedure'] },
+                        { qNum: 'Q.10 a', question: 'Illustrate categories and objects with suitable examples.', marks: 10, tags: ['Illustrate', 'Example'] },
+                        { qNum: 'Q.10 b', question: 'Explain the following with respect to events: i) Time ii) Fluents and objects.', marks: 10, tags: ['Explain', 'Theory'] }
+                    ]
+                }
+            },
+            '2A': {
+                name: 'Model Paper 2023-24 (2A)',
+                color: 'from-purple-600 to-purple-800',
+                modules: {
+                    'Module 1': [
+                        { qNum: 'Q.1 a', question: 'Define Artificial Intelligence. Explain the foundations of AI in detail.', marks: 10, tags: ['Define', 'Explain'] },
+                        { qNum: 'Q.1 b', question: 'Discuss the PEAS specification of Biometric Authentication System.', marks: 10, tags: ['PEAS', 'Apply'] },
+                        { qNum: 'Q.2 a', question: 'Differentiate: i. Fully observable vs partially observable ii. Single agent vs Multiagent iii. Deterministic vs Stochastic iv. Static vs Dynamic.', marks: 10, tags: ['Differentiate', 'Theory'] },
+                        { qNum: 'Q.2 b', question: 'Give PEAS specification for Automated Taxi Driver.', marks: 10, tags: ['PEAS', 'Apply'] }
+                    ],
+                    'Module 2': [
+                        { qNum: 'Q.3 a', question: 'Explain five components and well-defined problem. Consider an 8-puzzle problem as an example.', marks: 10, tags: ['Explain', 'Example'] },
+                        { qNum: 'Q.3 b', question: 'In detail elaborate with neat diagram, the state space for the vacuum world. Links denote actions: L Left, R Right, S Suck.', marks: 10, tags: ['Diagram', 'State Space'] },
+                        { qNum: 'Q.4 a', question: 'For the graph given below (S, A, B, C, D, G) apply BFS and DFS Search algorithm.', marks: 10, tags: ['Apply', 'Algorithm'] },
+                        { qNum: 'Q.4 b', question: 'Explain Depth Limited Search and Iterative Deepening DFS Search with an example.', marks: 10, tags: ['Explain', 'Algorithm'] }
+                    ],
+                    'Module 3': [
+                        { qNum: 'Q.5 a', question: 'In the below graph, find the path from A to G using Greedy Best First search and A* search algorithm. (Heuristic values given: A:5, B:6, C:4, D:15, E:3, F:1, G:0).', marks: 10, tags: ['Apply', 'Algorithm'] },
+                        { qNum: 'Q.5 b', question: 'Explain the Knowledge-based agents with an algorithm and explain the TELL and ASK functions used for same.', marks: 10, tags: ['Explain', 'Algorithm'] },
+                        { qNum: 'Q.6 a', question: 'Apply the A* search to find the solution path from a to z. Write all steps as well as open and closed lists.', marks: 10, tags: ['Apply', 'Algorithm'] },
+                        { qNum: 'Q.6 b', question: 'Considering Wumpus world example give the characteristics and simple knowledge base using propositional logic and Prove that Wumpus is in the room (1, 3).', marks: 10, tags: ['Prove', 'Propositional Logic'] }
+                    ],
+                    'Module 4': [
+                        { qNum: 'Q.7 a', question: 'List the drawbacks of Propositional Logic. Explain the Syntax and Semantics in First-order Logic.', marks: 10, tags: ['Explain', 'Theory'] },
+                        { qNum: 'Q.7 b', question: 'Define Universal and Existential Instantiation and give examples for both. Prove the following using Forward chaining: "As per the law, it is a crime for an American to sell weapons to hostile nations. Country E, an enemy of America, has some missiles, and all the missiles were sold to it by Solan, who is an American citizen." Prove that "Solan is criminal."', marks: 10, tags: ['Define', 'Prove'] },
+                        { qNum: 'Q.8 a', question: 'Explain the following with respect to the first-order logic: i. Assertions and Queries in First-order logic ii. The kinship domain iii. Numbers, sets and lists.', marks: 10, tags: ['Explain', 'Theory'] },
+                        { qNum: 'Q.8 b', question: 'Considering the digital circuit example illustrate the seven steps in knowledge engineering process.', marks: 10, tags: ['Illustrate', 'Example'] }
+                    ],
+                    'Module 5': [
+                        { qNum: 'Q.9 a', question: 'Explain Backward-chaining algorithm with an example.', marks: 10, tags: ['Explain', 'Algorithm'] },
+                        { qNum: 'Q.9 b', question: 'Define Classical Planning. With the blocks world example explain the same in detail.', marks: 10, tags: ['Define', 'Explain'] },
+                        { qNum: 'Q.10 a.i', question: 'Write appropriate quantifiers for: Some students read well; Some students like some books; Some students like all books; All students like some books; All students like no books.', marks: 10, tags: ['Write', 'Apply'] },
+                        { qNum: 'Q.10 a.ii', question: 'Explain the concept of Resolution in First-order Logic with appropriate procedure.', marks: 0, tags: ['Explain', 'Procedure'] },
+                        { qNum: 'Q.10 b', question: 'Explain the two approaches to searching for a plan in detail.', marks: 10, tags: ['Explain', 'Theory'] }
+                    ]
+                }
+            },
+            '2B': {
+                name: 'Model Paper 2022-23 (2B)',
+                color: 'from-orange-600 to-orange-800',
+                modules: {
+                    'Module 1': [
+                        { qNum: 'Q.01 a', question: 'Define Artificial Intelligence? Explain Turing test approach with example.', marks: 10, tags: ['Define', 'Explain'] },
+                        { qNum: 'Q.01 b', question: 'Explain the concept of Rationality in Detail.', marks: 10, tags: ['Explain', 'Theory'] },
+                        { qNum: 'Q.02 a', question: 'Explain various types of Environment in Artificial Intelligence.', marks: 10, tags: ['Explain', 'Theory'] },
+                        { qNum: 'Q.02 b', question: 'Define Agent. Explain any 3 types of Agent in Artificial Intelligence.', marks: 10, tags: ['Define', 'Explain'] }
+                    ],
+                    'Module 2': [
+                        { qNum: 'Q.03 a', question: 'Explain problem solving agent in detail with suitable example.', marks: 10, tags: ['Explain', 'Example'] },
+                        { qNum: 'Q.03 b', question: 'Discuss how BFS and IDDFS work in Artificial Intelligence with examples.', marks: 10, tags: ['Explain', 'Algorithm'] },
+                        { qNum: 'Q.04 a', question: 'Explain how PSA solves 8-Puzzle Problem in detail.', marks: 10, tags: ['Explain', 'Example'] },
+                        { qNum: 'Q.04 b', question: 'Explain how DFS and uniform-cost Search algorithm works in AI with suitable examples.', marks: 10, tags: ['Explain', 'Algorithm'] }
+                    ],
+                    'Module 3': [
+                        { qNum: 'Q.05 a', question: 'Define Heuristic Function. Explain A* Search Algorithm for minimizing the total estimated solution cost.', marks: 10, tags: ['Define', 'Explain'] },
+                        { qNum: 'Q.05 b', question: 'With a neat diagram explain Knowledge based Agent.', marks: 10, tags: ['Diagram', 'Explain'] },
+                        { qNum: 'Q.06 a', question: 'Explain Wumpus world problem in detail.', marks: 10, tags: ['Explain', 'Theory'] },
+                        { qNum: 'Q.06 b', question: 'Explain Propositional Logic syntax and Semantics with suitable example.', marks: 10, tags: ['Explain', 'Example'] }
+                    ],
+                    'Module 4': [
+                        { qNum: 'Q.07 a', question: 'Explain syntax and semantics of First-order Logic with suitable Examples.', marks: 10, tags: ['Explain', 'Example'] },
+                        { qNum: 'Q.07 b', question: 'Explain the steps involved in Knowledge Engineering with Example.', marks: 10, tags: ['Explain', 'Example'] },
+                        { qNum: 'Q.08 a', question: 'Explain forward chaining with example.', marks: 10, tags: ['Explain', 'Example'] },
+                        { qNum: 'Q.08 b', question: 'Explain Unification in Artificial Intelligence with Example.', marks: 10, tags: ['Explain', 'Example'] }
+                    ],
+                    'Module 5': [
+                        { qNum: 'Q.09 a', question: 'Explain Backward-chaining with example.', marks: 10, tags: ['Explain', 'Example'] },
+                        { qNum: 'Q.09 b', question: 'Explain Graph Plan Algorithm.', marks: 10, tags: ['Explain', 'Algorithm'] },
+                        { qNum: 'Q.10 a', question: 'Explain the concept of Resolution in AI.', marks: 10, tags: ['Explain', 'Theory'] },
+                        { qNum: 'Q.10 b', question: 'How state space search is done in AI discuss.', marks: 10, tags: ['Discuss', 'Theory'] }
+                    ]
+                }
+            }
+        };
+
+        let activeModule = 'module1';
+        let activePaper = '1A';
+        let activeStudyModule = 'Module 1';
+        let activeLogicModule = 'Module 1';
+        let currentView = 'module';
+
+        function switchTab(view) {
+            currentView = view;
+            const moduleTab = document.getElementById('tab-module');
+            const paperTab = document.getElementById('tab-paper');
+            const planTab = document.getElementById('tab-plan');
+            const logicTab = document.getElementById('tab-logic');
+
+            // Reset all
+            [moduleTab, paperTab, planTab, logicTab].forEach(tab => {
+                tab.className = "w-full rounded-lg py-2.5 px-4 text-sm font-medium leading-5 text-gray-600 hover:text-blue-600 transition-all duration-200 hover:bg-white/[0.12]";
+            });
+
+            // Set active
+            const activeClass = "w-full rounded-lg py-2.5 px-4 text-sm font-medium leading-5 text-blue-700 bg-white shadow transition-all duration-200";
+
+            if (view === 'module') {
+                moduleTab.className = activeClass;
+                renderModules();
+            } else if (view === 'paper') {
+                paperTab.className = activeClass;
+                renderPapers();
+            } else if (view === 'plan') {
+                planTab.className = activeClass;
+                renderStudyPlan();
+            } else if (view === 'logic') {
+                logicTab.className = activeClass;
+                renderLogic();
+            }
+            lucide.createIcons();
+        }
+
+        function toggleModule(moduleKey) {
+            const content = document.getElementById(`content-${moduleKey}`);
+            const iconContainer = document.getElementById(`icon-${moduleKey}`);
+
+            // If clicking the currently active one, just close it
+            if (activeModule === moduleKey && content.classList.contains('active')) {
+                content.classList.remove('active');
+                iconContainer.innerHTML = '<i data-lucide="chevron-down"></i>';
+                activeModule = null;
+            } else {
+                // Close others
+                if (activeModule) {
+                    const prevContent = document.getElementById(`content-${activeModule}`);
+                    const prevIcon = document.getElementById(`icon-${activeModule}`);
+                    if (prevContent) prevContent.classList.remove('active');
+                    if (prevIcon) prevIcon.innerHTML = '<i data-lucide="chevron-down"></i>';
+                }
+                // Open selected
+                content.classList.add('active');
+                iconContainer.innerHTML = '<i data-lucide="chevron-up"></i>';
+                activeModule = moduleKey;
+            }
+            lucide.createIcons();
+        }
+
+        function togglePaper(paperKey) {
+            const content = document.getElementById(`content-paper-${paperKey}`);
+            const iconContainer = document.getElementById(`icon-paper-${paperKey}`);
+
+            // If clicking the currently active one, just close it
+            if (activePaper === paperKey && content.classList.contains('active')) {
+                content.classList.remove('active');
+                iconContainer.innerHTML = '<i data-lucide="chevron-down"></i>';
+                activePaper = null;
+            } else {
+                // Close others
+                if (activePaper) {
+                    const prevContent = document.getElementById(`content-paper-${activePaper}`);
+                    const prevIcon = document.getElementById(`icon-paper-${activePaper}`);
+                    if (prevContent) prevContent.classList.remove('active');
+                    if (prevIcon) prevIcon.innerHTML = '<i data-lucide="chevron-down"></i>';
+                }
+                // Open selected
+                content.classList.add('active');
+                iconContainer.innerHTML = '<i data-lucide="chevron-up"></i>';
+                activePaper = paperKey;
+            }
+            lucide.createIcons();
+        }
+
+
+
+        function toggleStudyModule(moduleKey) {
+            const content = document.getElementById(`content-plan-${moduleKey.replace(/\s+/g, '-')}`);
+            const iconContainer = document.getElementById(`icon-plan-${moduleKey.replace(/\s+/g, '-')}`);
+
+            if (activeStudyModule === moduleKey && content.classList.contains('active')) {
+                content.classList.remove('active');
+                iconContainer.innerHTML = '<i data-lucide="chevron-down"></i>';
+                activeStudyModule = null;
+            } else {
+                if (activeStudyModule) {
+                    const prevKey = activeStudyModule.replace(/\s+/g, '-');
+                    const prevContent = document.getElementById(`content-plan-${prevKey}`);
+                    const prevIcon = document.getElementById(`icon-plan-${prevKey}`);
+                    if (prevContent) prevContent.classList.remove('active');
+                    if (prevIcon) prevIcon.innerHTML = '<i data-lucide="chevron-down"></i>';
+                }
+                content.classList.add('active');
+                iconContainer.innerHTML = '<i data-lucide="chevron-up"></i>';
+                activeStudyModule = moduleKey;
+            }
+            lucide.createIcons();
+        }
+
+        function renderModules() {
+            const container = document.getElementById('modules-container');
+            container.innerHTML = '';
+            let totalQ = 0;
+
+            Object.entries(modules).forEach(([key, data]) => {
+                totalQ += data.questions.length;
+
+                // Calculate total frequency for this module
+                const totalFrequency = data.questions.reduce((sum, q) => sum + q.frequency, 0);
+
+                const moduleHtml = `
+                    <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                        <div 
+                            class="bg-blue-600 text-white p-4 cursor-pointer flex justify-between items-center"
+                            onclick="toggleModule('${key}')"
+                        >
+                            <h2 class="text-xl font-bold">${data.title}</h2>
+                            <div class="flex items-center gap-3">
+                                <span class="bg-blue-800 px-3 py-1 rounded-full text-sm">
+                                    ${data.questions.length} Questions
+                                </span>
+                                <div id="icon-${key}">
+                                    <i data-lucide="${activeModule === key ? 'chevron-up' : 'chevron-down'}"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="content-${key}" class="collapsible-content ${activeModule === key ? 'active' : ''} p-4 overflow-x-auto">
+                            <table class="w-full border-collapse">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="border p-2 text-left w-8">#</th>
+                                        <th class="border p-2 text-left">Question</th>
+                                        <th class="border p-2 text-center w-20">Freq.</th>
+                                        <th class="border p-2 text-center w-32">Marks (Papers)</th>
+                                        <th class="border p-2 text-left w-48">Tags</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${data.questions.map((q, idx) => {
+                    let freqClass = 'bg-green-500';
+                    if (q.frequency >= 4) freqClass = 'bg-red-500';
+                    else if (q.frequency === 3) freqClass = 'bg-orange-500';
+                    else if (q.frequency === 2) freqClass = 'bg-yellow-500';
+
+                    return `
+                                            <tr class="${idx % 2 === 0 ? 'bg-gray-50' : 'bg-white'}">
+                                                <td class="border p-2 font-bold">${idx + 1}</td>
+                                                <td class="border p-2">
+                                                    <div class="font-semibold text-blue-700 mb-2">${q.question}</div>
+                                                    ${q.frequency > 1 ? `
+                                                        <div class="mt-2 bg-yellow-50 p-2 rounded text-sm">
+                                                            <strong>Variations:</strong>
+                                                            <ul class="list-disc ml-4 mt-1">
+                                                                ${q.details.map(detail => `<li class="mb-1">${detail}</li>`).join('')}
+                                                            </ul>
+                                                        </div>
+                                                    ` : ''}
+                                                </td>
+                                                <td class="border p-2 text-center">
+                                                    <span class="inline-block px-3 py-1 rounded-full text-white font-bold ${freqClass}">
+                                                        ${q.frequency}x
+                                                    </span>
+                                                </td>
+                                                <td class="border p-2">
+                                                    ${q.marks.map((mark, mIdx) => `
+                                                        <div class="mb-1">
+                                                            <span class="font-bold">${mark}M</span> 
+                                                            <span class="text-gray-600 ml-2">(${q.papers[mIdx]})</span>
+                                                        </div>
+                                                    `).join('')}
+                                                </td>
+                                                <td class="border p-2">
+                                                    <div class="flex flex-wrap gap-1">
+                                                        ${q.tags.map(tag => `
+                                                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
+                                                                ${tag}
+                                                            </span>
+                                                        `).join('')}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        `;
+                }).join('')}
+                                    <tr class="bg-blue-100 font-bold border-t-2 border-blue-300">
+                                        <td class="border p-2 text-right text-blue-900" colspan="2">Total questioned asked in 4 papers</td>
+                                        <td class="border p-2 text-center">
+                                            <span class="text-blue-900 text-lg">${totalFrequency}</span>
+                                        </td>
+                                        <td class="border p-2 bg-gray-50" colspan="2"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += moduleHtml;
+            });
+
+            document.getElementById('total-questions').innerText = totalQ;
+            lucide.createIcons();
+        }
+
+        function renderPapers() {
+            const container = document.getElementById('modules-container');
+            container.innerHTML = ''; // Clear container
+
+            Object.entries(paperQuestions).forEach(([paperKey, paperData]) => {
+                let modulesHtml = '';
+
+                Object.entries(paperData.modules).forEach(([modName, questions]) => {
+                    modulesHtml += `
+                        <div class="mb-4">
+                            <h4 class="font-bold text-gray-700 mb-2 border-b pb-1">${modName}</h4>
+                            <div class="space-y-3">
+                                ${questions.map(q => `
+                                    <div class="bg-gray-50 border border-gray-100 p-3 rounded hover:bg-blue-50 transition-colors">
+                                        <div class="flex justify-between items-start gap-2">
+                                            <div class="flex-1">
+                                                <div class="flex items-center gap-2 mb-1">
+                                                    <span class="font-mono text-xs font-bold bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">${q.qNum}</span>
+                                                    <span class="text-xs font-bold text-blue-600">${q.marks}M</span>
+                                                </div>
+                                                <p class="text-sm text-gray-800 leading-relaxed">${q.question}</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2 flex flex-wrap gap-1">
+                                            ${q.tags.map(t => `<span class="text-[10px] uppercase font-semibold text-gray-500 bg-white border border-gray-200 px-1.5 py-0.5 rounded">${t}</span>`).join('')}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                     `;
+                });
+
+                const paperHtml = `
+                    <div class="bg-white rounded-lg shadow-md mb-6 overflow-hidden border-t-4 border-gray-200">
+                         <div 
+                            class="bg-gradient-to-r ${paperData.color} text-white p-4 cursor-pointer flex justify-between items-center"
+                            onclick="togglePaper('${paperKey}')"
+                         >
+                            <h2 class="text-xl font-bold flex items-center gap-2">
+                                <i data-lucide="file-text" class="w-5 h-5"></i>
+                                ${paperData.name}
+                            </h2>
+                            <div id="icon-paper-${paperKey}">
+                                <i data-lucide="${activePaper === paperKey ? 'chevron-up' : 'chevron-down'}"></i>
+                            </div>
+                        </div>
+                        <div id="content-paper-${paperKey}" class="collapsible-content ${activePaper === paperKey ? 'active' : ''} p-4">
+                            ${modulesHtml}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += paperHtml;
+            });
+            lucide.createIcons();
+        }
+
+        // Initialize
+        renderModules();
+        // Study Plan Data
+        const studyPlan = {
+            'Module 1': {
+                title: 'Module 1 (Q2,chances)',
+                topics: [
+                    {
+                        title: 'A. AI Nature + Approaches',
+                        instruction: 'Prepare ONE answer for all of these:',
+                        questions: [
+                            'What is Artificial Intelligence? Explain the four approaches of Artificial Intelligence in detail.',
+                            'Is AI a science, or is it engineering or neither or both? Explain.',
+                            'Define Artificial Intelligence. Explain the foundations of AI in detail.'
+                        ]
+                    },
+                    {
+                        title: 'B. Agents',
+                        instruction: 'Prepare ONE answer for all of these:',
+                        questions: [
+                            'Write pseudocode agent programs for the goal-based and utility-based agents.',
+                            'With a neat diagram explain: i) Utility-based agents ii) Learning agents'
+                        ]
+                    },
+                    {
+                        title: 'C. PEAS',
+                        instruction: 'Prepare ONE PEAS template usable for all:',
+                        questions: [
+                            'Give PEAS description for playing a tennis match.',
+                            'Give PEAS description for performing a high jump.',
+                            'Give PEAS description for bidding on an item in an auction.',
+                            'Give PEAS specification for Automated Taxi Driver.',
+                            'Discuss the PEAS specification of Biometric Authentication System.'
+                        ]
+                    },
+                    {
+                        title: 'D. Task Environments (optional)',
+                        instruction: 'Prepare ONE table answer for all:',
+                        questions: [
+                            'Briefly explain the properties of task environments.',
+                            'Differentiate fully observable vs partially observable, single agent vs multiagent, deterministic vs stochastic, static vs dynamic.',
+                            'Explain various types of environment in Artificial Intelligence.'
+                        ]
+                    }
+                ]
+            },
+            'Module 2': {
+                title: 'Module 2 (Q4,chances)',
+                topics: [
+                    {
+                        title: 'A. BFS and DFS',
+                        instruction: 'Prepare ONE BFS + DFS answer with graph for all:',
+                        questions: [
+                            'Illustrate Breadth-first search and Depth-first search strategies with suitable example.',
+                            'Apply BFS and DFS search algorithm on the given graph.',
+                            'Discuss how BFS and IDDFS work in Artificial Intelligence with examples.'
+                        ]
+                    },
+                    {
+                        title: 'B. IDDFS and DLS',
+                        instruction: 'Prepare ONE theory + example for all:',
+                        questions: [
+                            'Explain Depth Limited Search and Iterative Deepening DFS search with an example.',
+                            'Explain how DFS and uniform-cost search algorithm works in AI with suitable examples.'
+                        ]
+                    },
+                    {
+                        title: 'C. Problem Solving and Vacuum World (optional)',
+                        instruction: 'Prepare ONE combined answer for all:',
+                        questions: [
+                            'List and define the four phases of problem-solving process.',
+                            'Explain how a search problem can be formally defined. Illustrate the same for the Vacuum World problem.',
+                            'Write the state-space graph for the two-cell Vacuum World problem.',
+                            'Explain five components of a well-defined problem. Consider 8-puzzle problem as an example.'
+                        ]
+                    }
+                ]
+            },
+            'Module 3': {
+                title: 'Module 3 (Q5,chances)',
+                topics: [
+                    {
+                        title: 'A. A* and GBFS',
+                        instruction: 'Prepare ONE A answer with graph tracing* for all:',
+                        questions: [
+                            'Apply Greedy Best First Search algorithm to the given graph and show stages.',
+                            'In the given graph, find the path using Greedy Best First Search and A* algorithm.',
+                            'Apply the A* search to find the solution path. Write all steps with open and closed lists.',
+                            'Define heuristic function. Explain A* search algorithm for minimizing total estimated cost.'
+                        ]
+                    },
+                    {
+                        title: 'B. Heuristic Properties',
+                        instruction: 'Prepare ONE theory answer for all:',
+                        questions: [
+                            'Explain different methods of deriving heuristics.',
+                            'Prove that if a heuristic is consistent, it must be admissible. Construct an admissible heuristic that is not consistent.'
+                        ]
+                    },
+                    {
+                        title: 'C. Knowledge Based Agents (optional)',
+                        instruction: 'Prepare ONE diagram + algorithm answer for all:',
+                        questions: [
+                            'Briefly explain Knowledge Based Agents.',
+                            'Explain Knowledge Based Agents with algorithm and explain TELL and ASK functions.',
+                            'With a neat diagram explain Knowledge Based Agent.'
+                        ]
+                    },
+                    {
+                        title: 'D. Wumpus World (optional)',
+                        instruction: 'Prepare ONE Wumpus answer for all:',
+                        questions: [
+                            'Using PEAS description, represent the Wumpus World problem.',
+                            'Explain Wumpus World problem in detail.',
+                            'Considering Wumpus World example give the characteristics and simple knowledge base using propositional logic.'
+                        ]
+                    },
+                    {
+                        title: 'E. Propositional Logic (optional)',
+                        instruction: 'Prepare ONE syntax answer for all:',
+                        questions: [
+                            'Explain syntax and semantics of propositional logic.',
+                            'Explain propositional logic syntax and semantics with suitable example.'
+                        ]
+                    }
+                ]
+            },
+            'Module 4': {
+                title: 'Module 4 (Q7,chances)',
+                topics: [
+                    {
+                        title: 'A. First Order Logic',
+                        instruction: 'Prepare ONE FOL answer for all:',
+                        questions: [
+                            'Explain syntax and semantics of First Order Logic with suitable examples.',
+                            'List the drawbacks of propositional logic. Explain syntax and semantics in First Order Logic.',
+                            'Explain in detail the syntax of First Order Logic.'
+                        ]
+                    },
+                    {
+                        title: 'B. Knowledge Engineering',
+                        instruction: 'Prepare ONE steps answer for all:',
+                        questions: [
+                            'Explain the steps involved in Knowledge Engineering with example.',
+                            'Explain various steps in the knowledge engineering process.',
+                            'Considering the digital circuit example illustrate the seven steps in knowledge engineering process.'
+                        ]
+                    },
+                    {
+                        title: 'C. Forward Chaining (optional)',
+                        instruction: 'Prepare ONE algorithm answer for all:',
+                        questions: [
+                            'Explain forward chaining with example.',
+                            'Explain simple forward chaining algorithm with an example.',
+                            'Define Universal and Existential Instantiation and prove “Solan is criminal”.'
+                        ]
+                    },
+                    {
+                        title: 'D. Unification (optional)',
+                        instruction: 'Prepare ONE algorithm answer for all:',
+                        questions: [
+                            'Write unification algorithm. Explain with suitable example.',
+                            'Explain unification in Artificial Intelligence with example.'
+                        ]
+                    }
+                ]
+            },
+            'Module 5': {
+                title: 'Module 5 (Q9,chances)',
+                topics: [
+                    {
+                        title: 'A. Backward Chaining',
+                        instruction: 'Prepare ONE algorithm + proof for all:',
+                        questions: [
+                            'Explain backward chaining algorithm with an example.',
+                            'Give a backward chaining proof of the given sentence.',
+                            'Explain backward chaining with example.'
+                        ]
+                    },
+                    {
+                        title: 'B. Planning',
+                        instruction: 'Prepare ONE comparison + example for all:',
+                        questions: [
+                            'Describe the differences and similarities between problem solving and planning.',
+                            'Define classical planning. Explain with blocks world example.',
+                            'Explain the two approaches to searching for a plan.'
+                        ]
+                    },
+                    {
+                        title: 'C. CNF and Resolution (optional)',
+                        instruction: 'Prepare ONE CNF conversion answer for all:',
+                        questions: [
+                            'Illustrate the procedure to convert a sentence of first order logic to CNF.',
+                            'Explain the concept of resolution in First Order Logic with procedure.',
+                            'Explain the concept of resolution in Artificial Intelligence.'
+                        ]
+                    },
+                    {
+                        title: 'D. Graph Plan (optional)',
+                        instruction: 'Prepare ONE algorithm answer for all:',
+                        questions: [
+                            'Explain Graph Plan algorithm.',
+                            'How state space search is done in Artificial Intelligence.'
+                        ]
+                    }
+                ]
+            }
+        };
+
+        function renderStudyPlan() {
+            const container = document.getElementById('modules-container');
+            container.innerHTML = '';
+
+            Object.entries(studyPlan).forEach(([key, module]) => {
+                let topicsHtml = '';
+
+                module.topics.forEach(topic => {
+                    topicsHtml += `
+                        <div class="mb-6 last:mb-0">
+                            <h3 class="font-bold text-lg text-blue-800 mb-2">${topic.title}</h3>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 mb-3 text-sm text-yellow-800 font-medium">
+                                <i data-lucide="lightbulb" class="inline w-4 h-4 mr-1"></i> ${topic.instruction}
+                            </div>
+                            <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                ${topic.questions.map(q => `<li>${q}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                });
+
+                const safeKey = key.replace(/\s+/g, '-');
+                const logicKey = key.replace('module', 'Module ');
+                const strategy = logicData[key] ? logicData[key].strategy : null;
+
+                const html = `
+                    <div class="bg-white rounded-lg shadow-md mb-6 overflow-hidden border-t-4 border-indigo-200">
+                         <div 
+                            class="bg-indigo-600 text-white p-4 cursor-pointer flex justify-between items-center"
+                            onclick="toggleStudyModule('${key}')"
+                         >
+                            <h2 class="text-xl font-bold flex items-center gap-2">
+                                <i data-lucide="book-open" class="w-5 h-5"></i>
+                                ${module.title}
+                            </h2>
+                             <div id="icon-plan-${safeKey}">
+                                <i data-lucide="${activeStudyModule === key ? 'chevron-up' : 'chevron-down'}"></i>
+                            </div>
+                        </div>
+                        <div id="content-plan-${safeKey}" class="collapsible-content ${activeStudyModule === key ? 'active' : ''} p-6">
+                            ${strategy ? `
+                            <div class="bg-purple-50 border border-purple-200 rounded-lg p-4 mb-6">
+                                <h3 class="font-bold text-purple-800 mb-2 flex items-center gap-2">
+                                    <i data-lucide="crosshair" class="w-4 h-4"></i> Exam Strategy
+                                </h3>
+                                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                    <div class="space-y-1">
+                                        <div><span class="font-bold text-green-700">✅ Must:</span> ${strategy.must}</div>
+                                        <div><span class="font-bold text-blue-700">✅ Should:</span> ${strategy.should}</div>
+                                    </div>
+                                    <div class="space-y-1">
+                                         <div><span class="font-bold text-gray-600">⚠️ Optional:</span> ${strategy.optional}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            ` : ''}
+                            ${topicsHtml}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+            lucide.createIcons();
+        }
+
+        // Logic Data
+        const logicData = {
+            'Module 1': {
+                title: 'Module 1: Foundations',
+                splitPattern: {
+                    first: ['Definitions + Basic concepts', 'AI capabilities/applications', 'Simple agent implementation'],
+                    second: ['AI nature/approaches', 'Agent pseudocodes (almost guaranteed)', 'PEAS description (almost guaranteed)']
+                },
+                logic: [
+                    'First option = Tests foundational knowledge',
+                    'Second option = Tests practical understanding',
+                    'Second option is easier (more structured, less ambiguous)'
+                ],
+                repeats: [
+                    '✅ Agent pseudocodes (90%)',
+                    '✅ PEAS format (80%)',
+                    '✅ 4 approaches of AI (70%)'
+                ],
+                strategy: {
+                    must: 'PEAS (7M) + Agent pseudocodes (8M) = 15 marks secured',
+                    should: '4 approaches (10M)',
+                    optional: 'Task environment properties (7M)',
+                    bestPick: 'Second option (usually has PEAS + Pseudocodes + Approaches)'
+                }
+            },
+            'Module 2': {
+                title: 'Module 2: Problem Solving',
+                splitPattern: {
+                    first: ['Problem formulation steps', 'Specific problems (8-puzzle, Graph coloring, Monkey-banana)', 'Theoretical proofs (algorithm comparisons)'],
+                    second: ['BFS/DFS on graph (almost guaranteed)', 'IDDFS/DLS explanation', 'Performance metrics']
+                },
+                logic: [
+                    'First option = Tests problem modeling ability (harder)',
+                    'Second option = Tests algorithm understanding (easier)',
+                    'Second option is easier (direct application, clear steps)'
+                ],
+                repeats: [
+                    '✅ BFS/DFS graph tracing (95%)',
+                    '✅ IDDFS explanation (70%)',
+                    '⚠️ Specific formulations vary (30%)'
+                ],
+                strategy: {
+                    must: 'BFS/DFS tracing (10M) = 10 marks secured',
+                    should: 'IDDFS (10M)',
+                    optional: 'Vacuum world (10M), Performance metrics (6M)',
+                    bestPick: 'Second option (usually has BFS/DFS + IDDFS)'
+                }
+            },
+            'Module 3': {
+                title: 'Module 3: Informed Search + Logic',
+                splitPattern: {
+                    first: ['A* or GBFS on graph* (almost guaranteed)', 'Heuristic methods/properties', 'Sometimes KB agents'],
+                    second: ['Wumpus World', 'Propositional logic', 'Sometimes logic proofs (validity, satisfiability)']
+                },
+                logic: [
+                    'First option = Tests heuristic search (usually easier)',
+                    'Second option = Tests knowledge representation (more conceptual)',
+                    'First option is easier (when it has graph application)'
+                ],
+                repeats: [
+                    '✅ A*/GBFS graph tracing (90%)',
+                    '✅ Heuristic methods (70%)',
+                    '✅ Wumpus World (60%)',
+                    '⚠️ Logic proofs vary (40%)'
+                ],
+                strategy: {
+                    must: 'A*/GBFS tracing (10M) = 10 marks secured',
+                    should: 'Heuristic methods (10M), Wumpus World (10M)',
+                    optional: 'KB agents (6M), Prop logic basics (4M)',
+                    bestPick: 'First option (usually has A*/GBFS + Heuristics)'
+                }
+            },
+            'Module 4': {
+                title: 'Module 4: First-Order Logic',
+                splitPattern: {
+                    first: ['FOL syntax and semantics (almost guaranteed)', 'Knowledge Engineering 7 steps', 'Instantiation rules'],
+                    second: ['Unification algorithm', 'Forward chaining', 'FOL representations', 'Sometimes entailment proofs']
+                },
+                logic: [
+                    'First option = Tests FOL basics (more straightforward)',
+                    'Second option = Tests inference mechanisms (more complex)',
+                    'First option is easier (FOL syntax is standard, well-defined)'
+                ],
+                repeats: [
+                    '✅ FOL syntax/semantics (95%)',
+                    '✅ KB Engineering (70%)',
+                    '✅ Forward/Backward chaining (80%)',
+                    '⚠️ Specific FOL problems vary (40%)'
+                ],
+                strategy: {
+                    must: 'FOL syntax/semantics (10M) = 10 marks secured',
+                    should: 'KB Engineering (10M), Forward chaining (10M)',
+                    optional: 'Unification (10M)',
+                    bestPick: 'First option (usually has FOL syntax + KB Engineering)'
+                }
+            },
+            'Module 5': {
+                title: 'Module 5: Advanced Logic + Planning',
+                splitPattern: {
+                    first: ['Backward chaining (almost guaranteed)', 'Problem solving vs Planning', 'CNF conversion', 'Classical planning'],
+                    second: ['Categories/Objects/Events (hard topics)', 'GraphPlan algorithm', 'Prolog code', 'Planning graph proofs']
+                },
+                logic: [
+                    'First option = Tests core inference + basic planning (easier)',
+                    'Second option = Tests advanced/niche topics (harder)',
+                    'First option is much easier (backward chaining is standard)'
+                ],
+                repeats: [
+                    '✅ Backward chaining (95%)',
+                    '✅ Planning comparison (70%)',
+                    '✅ CNF conversion (60%)',
+                    '⚠️ Advanced topics vary (30%)'
+                ],
+                strategy: {
+                    must: 'Backward chaining (10M) = 10 marks secured',
+                    should: 'Planning comparison (10M), CNF conversion (10M)',
+                    optional: 'Classical planning (10M), Resolution (10M)',
+                    bestPick: 'First option (always has Backward chaining + Planning)'
+                }
+            }
+        };
+
+        function toggleLogicModule(moduleKey) {
+            const content = document.getElementById(`content-logic-${moduleKey.replace(/\s+/g, '-')}`);
+            const iconContainer = document.getElementById(`icon-logic-${moduleKey.replace(/\s+/g, '-')}`);
+
+            if (activeLogicModule === moduleKey && content.classList.contains('active')) {
+                content.classList.remove('active');
+                iconContainer.innerHTML = '<i data-lucide="chevron-down"></i>';
+                activeLogicModule = null;
+            } else {
+                if (activeLogicModule) {
+                    const prevKey = activeLogicModule.replace(/\s+/g, '-');
+                    const prevContent = document.getElementById(`content-logic-${prevKey}`);
+                    const prevIcon = document.getElementById(`icon-logic-${prevKey}`);
+                    if (prevContent) prevContent.classList.remove('active');
+                    if (prevIcon) prevIcon.innerHTML = '<i data-lucide="chevron-down"></i>';
+                }
+                content.classList.add('active');
+                iconContainer.innerHTML = '<i data-lucide="chevron-up"></i>';
+                activeLogicModule = moduleKey;
+            }
+            lucide.createIcons();
+        }
+
+        function renderLogic() {
+            const container = document.getElementById('modules-container');
+            container.innerHTML = '';
+
+            Object.entries(logicData).forEach(([key, data]) => {
+                const safeKey = key.replace(/\s+/g, '-');
+                const html = `
+                    <div class="bg-white rounded-lg shadow-md mb-6 overflow-hidden border-t-4 border-purple-200">
+                         <div 
+                            class="bg-purple-600 text-white p-4 cursor-pointer flex justify-between items-center"
+                            onclick="toggleLogicModule('${key}')"
+                         >
+                            <h2 class="text-xl font-bold flex items-center gap-2">
+                                <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+                                ${data.title}
+                            </h2>
+                             <div id="icon-logic-${safeKey}">
+                                <i data-lucide="${activeLogicModule === key ? 'chevron-up' : 'chevron-down'}"></i>
+                            </div>
+                        </div>
+                        <div id="content-logic-${safeKey}" class="collapsible-content ${activeLogicModule === key ? 'active' : ''} p-6">
+                            
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                    <h3 class="font-bold text-blue-800 mb-2 flex items-center gap-2">
+                                        <i data-lucide="split" class="w-4 h-4"></i> Option 1 Pattern
+                                    </h3>
+                                    <ul class="list-disc pl-4 text-sm text-gray-700 space-y-1">
+                                        ${data.splitPattern.first.map(i => `<li>${i}</li>`).join('')}
+                                    </ul>
+                                </div>
+                                <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100">
+                                    <h3 class="font-bold text-indigo-800 mb-2 flex items-center gap-2">
+                                        <i data-lucide="split" class="w-4 h-4"></i> Option 2 Pattern
+                                    </h3>
+                                    <ul class="list-disc pl-4 text-sm text-gray-700 space-y-1">
+                                        ${data.splitPattern.second.map(i => `<li>${i}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                                    <i data-lucide="scale" class="w-4 h-4 text-purple-600"></i> The Logic
+                                </h3>
+                                <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                                    ${data.logic.map(l => `<li>${l}</li>`).join('')}
+                                </ul>
+                            </div>
+
+                            <div class="mb-6">
+                                <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                                    <i data-lucide="history" class="w-4 h-4 text-green-600"></i> What Repeats
+                                </h3>
+                                <div class="flex flex-wrap gap-2">
+                                    ${data.repeats.map(r => `<span class="bg-green-50 text-green-800 border border-green-200 px-2 py-1 rounded text-sm">${r}</span>`).join('')}
+                                </div>
+                            </div>
+
+                            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                                <h3 class="font-bold text-yellow-800 mb-3 flex items-center gap-2">
+                                    <i data-lucide="trophy" class="w-4 h-4"></i> Strategy
+                                </h3>
+                                <div class="space-y-2 text-sm">
+                                    <div><span class="font-bold text-green-700">✅ Must:</span> ${data.strategy.must}</div>
+                                    <div><span class="font-bold text-blue-700">✅ Should:</span> ${data.strategy.should}</div>
+                                    <div><span class="font-bold text-gray-600">⚠️ Optional:</span> ${data.strategy.optional}</div>
+                                    <div class="mt-2 pt-2 border-t border-yellow-200 font-bold text-yellow-900">
+                                        🏆 Best Pick: ${data.strategy.bestPick}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+            lucide.createIcons();
+        }
+    </script>
+</body>
+
+</html>
